@@ -1,0 +1,32 @@
+import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('タイピングテキスト')),
+        body: Center(
+          child: DefaultTextStyle(
+            style: const TextStyle(
+              fontSize: 32.0,
+              color: Colors.black,
+            ),
+            child: AnimatedTextKit(
+              animatedTexts: [
+                TypewriterAnimatedText('こんにちは、Flutter！', speed: Duration(milliseconds: 100)),
+              ],
+              totalRepeatCount: 1,
+              pause: Duration(milliseconds: 1000),
+              displayFullTextOnTap: true,
+              stopPauseOnTap: true,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
